@@ -1,0 +1,55 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId appid
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    aaptOptions {
+        additionalParameters "--package-id", "0x7E", "--allow-reserved-package-id"
+    }
+}
+project.ext.uuid = "123456789a"
+project.ext.archiveSuffix = "1"
+project.ext.archivePrefix = "plugin"
+project.ext.version = 3
+project.ext.uuidNickName = "1.1.5"
+project.ext.apkPathDebug = "plugin1/build/intermediates/apk/plugin/debug/plugin1-plugin-debug.apk"
+project.ext.apkPathRelease = "plugin1/build/intermediates/apk/plugin/release/plugin1-plugin-release.apk"
+project.ext.businessName = "plugin1"
+project.ext.partKey = "plugin1"
+project.ext.buildTaskDebug = ":plugin1:assemblePluginDebug"
+project.ext.buildTaskRelease = ":plugin1:assemblePluginRelease"
+
+apply from: "${project.rootDir}/pluginApk.gradle"
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    pluginCompileOnly "com.xa.tencent.shadow.core:runtime:${showversion}"
+}

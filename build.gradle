@@ -1,7 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+
+    dependencies {
+        classpath "com.xa.tencent.shadow.core:gradle-plugin:0.7"
+    }
+    ext.appid="com.xa.host_app"
+    ext.showversion="0.8"
+    ext.publish_connector="0.0.8"
+}
 plugins {
-    id 'com.android.application' version '7.2.1' apply false
-    id 'com.android.library' version '7.2.1' apply false
+    id 'com.android.application' version '7.1.1' apply false
+    id 'com.android.library' version '7.1.1' apply false
 }
 
 task clean(type: Delete) {

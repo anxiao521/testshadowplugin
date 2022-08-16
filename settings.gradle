@@ -1,16 +1,42 @@
 pluginManagement {
     repositories {
+        maven {
+            setUrl("http://127.0.0.1:8081/repository/maven-releases/")
+            setAllowInsecureProtocol(true)
+            credentials {
+                username = "ax123456"
+                password = "123456"
+            }
+
+        }
         gradlePluginPortal()
         google()
         mavenCentral()
+
     }
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
     repositories {
+        maven {
+            setUrl("http://127.0.0.1:8081/repository/maven-releases/")
+            setAllowInsecureProtocol(true)
+            credentials {
+                username = "ax123456"
+                password = "123456"
+            }
+        }
         google()
         mavenCentral()
+
     }
 }
 rootProject.name = "pluginTest"
-include ':app'
+include ':hostapp'
+include ':plugin1'
+include ':manager1'
+include ':common'
+include ':xa-runtime'
+include ':plugin2'
+include ':xatestloader'
+include ':pluginview'
