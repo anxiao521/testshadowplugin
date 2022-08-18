@@ -52,7 +52,7 @@ public class SamplePluginManager extends FastPluginManager {
      */
     @Override
     protected String getName() {
-        return "test-dynamic-manager";
+        return "test-dynamic-manager"+mPluginKey;
     }
 
     /**

@@ -19,11 +19,21 @@
 package com.xa.dynamic.impl;
 
 /**
- * 此类包名及类名固定
+ * 此类包名及类名固定-》格式查看ViewImplLoader类，
+ * ApkClassLoader apkClassLoader = new ApkClassLoader(
+ *                 installedApk,
+ *                 getClass().getClassLoader(),
+ *                 loadWhiteList(installedApk,"com.xa.dynamic.impl.WhiteList","sWhiteList"),
+ *                 1
+ *         );
+ *
  * classLoader的白名单
- * hello.apk 可以加载宿主中位于白名单内的类
+ * 可以加载宿主中位于白名单内的类
  */
 public interface WhiteList {
+    /**
+     * 返回view的接口必须设置，不然会出现转换异常
+     */
     String[] sWhiteList = new String[]
             {
                     "com.xa.common.plugin",
